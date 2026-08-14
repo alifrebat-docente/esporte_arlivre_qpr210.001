@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { AtletaService } from '../../service/atleta-service';
+import { Atleta } from '../../models/Atleta';
+
+
 @Component({
   selector: 'app-atleta-component',
   imports: [FormsModule],
@@ -18,6 +22,9 @@ export class AtletaComponent {
   cidade = ''
   uf = ''
 
+  //DECLARAÇÃO DO CONSTRUTOR
+  constructor(private atletaService: AtletaService) { }
+
   //DECLARAÇÃO DE FUNÇÕES
   exibirDados() {
     console.log(this.nome, this.cpf, this.sexo, this.cep, this.ruaLogradouro, this.bairro, this.cidade, this.uf)
@@ -34,6 +41,25 @@ export class AtletaComponent {
     this.bairro = ''
     this.cidade = ''
     this.uf = ''
+  }
+
+  salvar(){
+    const atleta = new Atleta()
+    atleta.nome = this.nome
+    atleta.cpf = this.cpf
+    atleta.sexo = this.sexo
+    atleta.cep = this.cep
+    atleta.ruaLogradouro = this.ruaLogradouro
+    atleta.bairro = this.bairro
+    atleta.cidade = this.cidade
+    atleta.uf  = this.uf
+    
+    this.atletaService.adicionarAtleta(atleta)
+    
+    this.limparDados()   
+
+    this.atletaService.listarAtletas()
+    
   }
 
 
