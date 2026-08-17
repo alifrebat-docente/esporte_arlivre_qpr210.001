@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { AtletaService } from '../../service/atleta-service';
-import { Atleta } from '../../models/Atleta';
+import { AtletaService } from '../../../service/atleta-service';
+import { Atleta } from '../../../models/Atleta';
 
 
 @Component({
@@ -54,7 +54,15 @@ export class AtletaComponent {
     atleta.cidade = this.cidade
     atleta.uf  = this.uf
     
-    this.atletaService.adicionarAtleta(atleta)
+    this.atletaService.salvarAtleta(atleta)
+    .subscribe({
+      next: (resposta)=>{
+        console.log( resposta)
+      },
+      error:(msgErro)=>{
+        console.log( msgErro)
+      }
+    })
     
     this.limparDados()   
 
