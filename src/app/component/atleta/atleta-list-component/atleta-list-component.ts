@@ -27,8 +27,6 @@ export class AtletaListComponent {
         next: (dadosAtletas) => {
           //this.listaAtletas = [...dadosAtletas].sort((a, b) => a.nome.localeCompare(b.nome))
           this.listaAtletas.set([...dadosAtletas].sort((a, b) => a.nome.localeCompare(b.nome)))
-
-          console.table(this.listaAtletas())
         },
         error: (msgErro) => {
           console.log("Erro ao listar Atletas ", msgErro)
