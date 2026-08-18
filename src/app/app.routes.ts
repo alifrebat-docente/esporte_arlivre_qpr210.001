@@ -19,13 +19,11 @@ export const routes: Routes = [
         component: AtletaComponent,
     },
     {
-        path:"cadastroAtleta/id",
+        path:"cadastroAtleta/:id",
         component: AtletaComponent,
     },
     {
         path:"listaAtleta",
         component: AtletaListComponent,
     }
-
-
 ];
