@@ -41,7 +41,6 @@ export class AtletaListComponent {
         .subscribe({
           next: (resposta) => {
             console.log("Excluído com Sucesso!!! ", resposta)
-
             this.listar()
           },
           error: (msgErro) => {
@@ -53,7 +52,6 @@ export class AtletaListComponent {
 
   carregaDadosAtletaForm(atleta: Atleta) {
     this.router.navigate(['/cadastroAtleta', atleta.id])
-
   }
 
 }
